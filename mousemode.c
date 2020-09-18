@@ -38,7 +38,7 @@ int handleKeys()
         return 1;
     int isfast, isslow, isleft, isdown, isup, isright, ism1, ism2, ism3, ism4, ism5;
     isfast    = iskeydown(XK_f);
-    isslow    = iskeydown(XK_v);
+    isslow    = iskeydown(XK_c);
     isleft    = (iskeydown(XK_h) || iskeydown(XK_Left))?  1 : 0;
     isdown    = (iskeydown(XK_j) || iskeydown(XK_Down))?  1 : 0;
     isup      = (iskeydown(XK_k) || iskeydown(XK_Up))?    1 : 0;
