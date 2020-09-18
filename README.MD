@@ -1,5 +1,7 @@
 # mousemode
 
+WORK IN PROGRESS
+
 ## Description
 
 A dead-simple, reliable keyboard interface for moving the mouse cursor and pressing buttons. When the program
@@ -7,8 +9,8 @@ is executed, mousemode will:
 
 1. lock most of the keyboard
 2. allow you to use vim or arrow keys to move the mouse cursor
-3. holding "f" will greatly decrease cursor speed
-4. holding "v" will double the speed (can be combined with shift)
+3. holding "v" will greatly decrease cursor speed
+4. holding "f" will double the speed (can be combined with "v")
 5. [a,s,d] keys correspond to left, middle and right mouse buttons
 6. [e, y] keys correspond to mouse wheel down and up rolls
 6. escape or "q" exits the program
