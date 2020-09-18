@@ -132,6 +132,8 @@ int main()
     }
 
     XUngrabKey(dpy, AnyKey, AnyModifier, root);
+    for (int i = 1; i <= 5; i++)
+        XTestFakeButtonEvent(dpy, i, False, CurrentTime);
     XCloseDisplay(dpy);
     return 0;
 }
