@@ -34,7 +34,7 @@ int handleKeys()
      * https://pastebin.com/sk7FZ6AP
      */
     XQueryKeymap(dpy, keys_return);
-    if (iskeydown(XK_Escape) || iskeydown(XK_q))
+    if (iskeydown(XK_q))
         return 0;
     if (iskeydown(XK_Super_L) || iskeydown(XK_Super_R))
         return 1;
