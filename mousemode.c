@@ -136,14 +136,10 @@ int main()
         grabkey(XK_Right);
     }
 
-    XAutoRepeatOff(dpy);
-
     while (running) {
         running &= handleKeys();
         usleep(1000000 / FREQUENCY);
     }
-
-    XAutoRepeatOn(dpy);
 
     XUngrabKey(dpy, AnyKey, AnyModifier, root);
     for (int i = 1; i <= 5; i++)
