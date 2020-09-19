@@ -15,6 +15,8 @@ is executed, mousemode will:
 6. [e, y] keys correspond to scroll wheel down and up
 6. "q" exits the program
 
+![preview](preview.gif)
+
 Mousemode is aimed at laptop power users that are annoyed with touchpads or people that in general find themselves
 in a position uncomfortable to be using the mouse via conventional means. The "f" and "c" keybindings feel a bit
 strange at first, but I wanted to avoid standard modifiers like shift and control, because some programs have
