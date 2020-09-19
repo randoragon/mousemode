@@ -66,14 +66,14 @@ int handleKeys()
     if (ism2 && !mousepress2) {
         XTestFakeButtonEvent(dpy, 2, True, CurrentTime);
         mousepress2 = 1;
-    } else if (!ism2 && mousepress1) {
+    } else if (!ism2 && mousepress2) {
         XTestFakeButtonEvent(dpy, 2, False, CurrentTime);
         mousepress2 = 0;
     }
-    if (ism3 && !mousepress1) {
+    if (ism3 && !mousepress3) {
         XTestFakeButtonEvent(dpy, 3, True, CurrentTime);
         mousepress3 = 1;
-    } else if (!ism3 && mousepress1) {
+    } else if (!ism3 && mousepress3) {
         XTestFakeButtonEvent(dpy, 3, False, CurrentTime);
         mousepress3 = 0;
     }
