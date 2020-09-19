@@ -4,10 +4,12 @@
 #include <X11/keysym.h>
 #include <X11/extensions/XTest.h>
 #include <unistd.h>
+#include <signal.h>
 
 #define FREQUENCY 60
 
 Display *dpy;
+int running = 1;
 int root;
 char keys_return[32] = {0};
 int mousespdl = 0;
@@ -108,9 +110,16 @@ void grabkey(int keysym)
     }
 }
 
+void termhandler(int signum)
+{
+    running = 0;
+}
 
 int main()
 {
+    signal(SIGTERM, termhandler);
+	signal(SIGINT, termhandler);
+
     if (!(dpy = XOpenDisplay(NULL))) {
         fprintf(stderr, "mousemode: failed to open display");
         return 2;
@@ -127,9 +136,14 @@ int main()
         grabkey(XK_Right);
     }
 
-    while (handleKeys()) {
+    XAutoRepeatOff(dpy);
+
+    while (running) {
+        running &= handleKeys();
         usleep(1000000 / FREQUENCY);
     }
+
+    XAutoRepeatOn(dpy);
 
     XUngrabKey(dpy, AnyKey, AnyModifier, root);
     for (int i = 1; i <= 5; i++)
