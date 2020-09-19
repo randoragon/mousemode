@@ -127,7 +127,7 @@ int main()
 
     root = RootWindow(dpy, DefaultScreen(dpy));
     {
-        for (int i = XK_space; i <= XK_asciitilde; i++) {
+        for (int i = XK_a; i <= XK_z; i++) {
             grabkey(i);
         }
         grabkey(XK_Left);
