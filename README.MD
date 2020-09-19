@@ -1,7 +1,5 @@
 # mousemode
 
-WORK IN PROGRESS
-
 ## Description
 
 A dead-simple, reliable keyboard interface for moving the mouse cursor and pressing buttons. When the program
