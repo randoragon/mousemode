@@ -27,7 +27,7 @@ to switch around windows, workspaces, etc. Once you memorize all the keys, you'r
 ---
 
 Mousemode does NOT use Xlib events. In fact, by nature it does not distinguish between key presses and releases.
-Instead, it reads the keyboard state 60 times a second and emulate mouse clicks/movement accordingly. This
+Instead, it reads the keyboard state 60 times a second and emulates mouse clicks/movement accordingly. This
 synchronous nature allows it to be very simple and reliable (only about 120 lines of code).
 
 ## Building
