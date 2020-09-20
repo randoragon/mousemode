@@ -30,6 +30,11 @@ MouseMode does NOT use Xlib events. In fact, by nature it does not distinguish b
 Instead, it reads the keyboard state 60 times a second and emulates mouse clicks/movement accordingly. This
 synchronous nature allows it to be very simple and reliable (only about 120 lines of code).
 
+## Installation
+
+For arch users, you can install the [AUR package](https://aur.archlinux.org/packages/mousemode-git/) `mousemode-git`.
+If you're not an arch user, the building process is very straight forward.
+
 ## Building
 
 You should only need Xlib, which is widely available on virtually all linux distributions. You very likely
