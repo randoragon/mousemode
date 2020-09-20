@@ -3,6 +3,8 @@ CFLAGS=-std=c99
 LDFLAGS=-lX11 -lXtst
 OBJS=mousemode.o
 OUT=mousemode
+DESTDIR=
+PREFIX=/usr/local/bin
 
 all: main
 
@@ -21,4 +23,4 @@ debug: clean $(OBJS)
 
 install: CFLAGS += -O3
 install: clean all
-	cp -- $(OUT) /usr/local/bin
+	cp -- $(OUT) $(DESTDIR)$(PREFIX)/
