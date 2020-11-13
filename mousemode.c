@@ -41,10 +41,10 @@ int handleKeys()
     int isfast, isslow, isleft, isdown, isup, isright, ism1, ism2, ism3, ism4, ism5;
     isfast    = iskeydown(XK_f);
     isslow    = iskeydown(XK_c);
-    isleft    = (iskeydown(XK_h) || iskeydown(XK_Left))?  1 : 0;
-    isdown    = (iskeydown(XK_j) || iskeydown(XK_Down))?  1 : 0;
-    isup      = (iskeydown(XK_k) || iskeydown(XK_Up))?    1 : 0;
-    isright   = (iskeydown(XK_l) || iskeydown(XK_Right))? 1 : 0;
+    isleft    = (iskeydown(XK_h) || iskeydown(XK_Left) || iskeydown(XK_KP_Left))?  1 : 0;
+    isdown    = (iskeydown(XK_j) || iskeydown(XK_Down) || iskeydown(XK_KP_Down))?  1 : 0;
+    isup      = (iskeydown(XK_k) || iskeydown(XK_Up)   || iskeydown(XK_KP_Up))?    1 : 0;
+    isright   = (iskeydown(XK_l) || iskeydown(XK_Right)|| iskeydown(XK_KP_Right))? 1 : 0;
     ism1      = iskeydown(XK_a);
     ism2      = iskeydown(XK_s);
     ism3      = iskeydown(XK_d);
@@ -131,8 +131,9 @@ int main()
         grabkey(XK_a); grabkey(XK_s); grabkey(XK_d);
         grabkey(XK_e); grabkey(XK_y);
         grabkey(XK_f); grabkey(XK_c);
-        grabkey(XK_h)   ; grabkey(XK_j)   ; grabkey(XK_k) ; grabkey(XK_l)    ;
-        grabkey(XK_Left); grabkey(XK_Down); grabkey(XK_Up); grabkey(XK_Right);
+        grabkey(XK_h)      ; grabkey(XK_j)      ; grabkey(XK_k)    ; grabkey(XK_l)       ;
+        grabkey(XK_Left)   ; grabkey(XK_Down)   ; grabkey(XK_Up)   ; grabkey(XK_Right)   ;
+        grabkey(XK_KP_Left); grabkey(XK_KP_Down); grabkey(XK_KP_Up); grabkey(XK_KP_Right);
     }
 
     while (running) {
