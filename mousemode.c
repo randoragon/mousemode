@@ -103,15 +103,10 @@ void grabkey(int keysym)
     KeyCode code;
     if ((code = XKeysymToKeycode(dpy, keysym))) {
         XGrabKey(dpy, code, 0, root, True, GrabModeAsync, GrabModeAsync);
-        if (keysym == XK_a || keysym == XK_s || keysym == XK_d
-                || keysym == XK_h || keysym == XK_j || keysym == XK_k || keysym == XK_l
-                || keysym == XK_Left || keysym == XK_Down || keysym == XK_Up || keysym == XK_Right
-                || keysym == XK_f || keysym == XK_c || keysym == XK_e || keysym == XK_y) {
-            XGrabKey(dpy, code, ShiftMask, root, True, GrabModeAsync, GrabModeAsync);
-            XGrabKey(dpy, code, ControlMask, root, True, GrabModeAsync, GrabModeAsync);
-            XGrabKey(dpy, code, Mod1Mask, root, True, GrabModeAsync, GrabModeAsync);
-            XGrabKey(dpy, code, ShiftMask|ControlMask, root, True, GrabModeAsync, GrabModeAsync);
-        }
+        XGrabKey(dpy, code, ShiftMask, root, True, GrabModeAsync, GrabModeAsync);
+        XGrabKey(dpy, code, ControlMask, root, True, GrabModeAsync, GrabModeAsync);
+        XGrabKey(dpy, code, Mod1Mask, root, True, GrabModeAsync, GrabModeAsync);
+        XGrabKey(dpy, code, ShiftMask|ControlMask, root, True, GrabModeAsync, GrabModeAsync);
     }
 }
 
@@ -132,13 +127,12 @@ int main()
 
     root = RootWindow(dpy, DefaultScreen(dpy));
     {
-        for (int i = XK_a; i <= XK_z; i++) {
-            grabkey(i);
-        }
-        grabkey(XK_Left);
-        grabkey(XK_Down);
-        grabkey(XK_Up);
-        grabkey(XK_Right);
+        grabkey(XK_q);
+        grabkey(XK_a); grabkey(XK_s); grabkey(XK_d);
+        grabkey(XK_e); grabkey(XK_y);
+        grabkey(XK_f); grabkey(XK_c);
+        grabkey(XK_h)   ; grabkey(XK_j)   ; grabkey(XK_k) ; grabkey(XK_l)    ;
+        grabkey(XK_Left); grabkey(XK_Down); grabkey(XK_Up); grabkey(XK_Right);
     }
 
     while (running) {
