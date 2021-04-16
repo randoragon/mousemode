@@ -4,7 +4,10 @@ LDFLAGS=-lX11 -lXtst
 OBJS=mousemode.o
 OUT=mousemode
 DESTDIR=
-PREFIX=/usr/local/bin
+PREFIX=/usr/local
+MANPREFIX=$(PREFIX)/share/man
+
+VERSION=1.0
 
 all: main
 
@@ -23,4 +26,13 @@ debug: clean $(OBJS)
 
 install: CFLAGS += -O3
 install: clean all
-	cp -- $(OUT) $(DESTDIR)$(PREFIX)/
+	mkdir -p -- $(DESTDIR)$(PREFIX)
+	cp -- $(OUT) $(DESTDIR)$(PREFIX)/bin
+	chmod 755 -- $(DESTDIR)$(PREFIX)/bin/$(OUT)
+	mkdir -p -- $(DESTDIR)$(MANPREFIX)
+	sed "s/VERSION/$(VERSION)/g" < mousemode.1 > $(DESTDIR)$(MANPREFIX)/man1/mousemode.1
+	chmod 755 -- $(DESTDIR)$(MANPREFIX)/man1/mousemode.1
+
+uninstall:
+	rm -f -- $(DESTDIR)$(PREFIX)/bin/$(OUT)
+	rm -f -- $(DESTDIR)$(MANPREFIX)/man1/mousemode.1

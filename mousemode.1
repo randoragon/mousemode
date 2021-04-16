@@ -1,0 +1,57 @@
+.TH MOUSEMODE 1 2021-04-16 "mousemode-VERSION"
+.SH NAME
+mousemode - control the mouse with keyboard keys
+.SH SYNOPSIS
+.B mousemode
+.SH DESCRIPTION
+.P
+.B mousemode
+is a dead-simple, reliable keyboard interface for moving the
+mouse cursor and pressing buttons. During execution,
+.B mousemode
+will:
+.IP 1.
+Allow you to use vim or arrow keys to move the mouse cursor
+.IP 2.
+Holding
+.B c
+will greatly decrease cursor speed
+.IP 3.
+Holding
+.B f
+will double the speed (can be combined with
+.BR c )
+.IP 4.
+Keys
+.BR a ", " s ", " d
+correspond to left, middle and right mouse buttons
+.IP 5.
+Keys
+.BR e ", " y
+correspond to scroll wheel down and up
+.IP 6.
+.B q
+exits the program
+.P
+During execution, all unmapped keys should behave as though
+.B mousemode
+is not running, including adding modifiers to the mapped keys.
+.SH BUGS
+.P
+It seems that sometimes the mapped keys are not
+properly locked by Xorg, which causes other applications
+to register the key presses that only
+.B mousemode
+should be receiving. It's a rather rare issue though.
+.SH AUTHORS
+.P
+.B mousemode
+was written by
+.MT "randoragongamedev@gmail.com"
+Randoragon
+.ME
+.br
+Browse the source code at
+.UR "https://github.com/randoragon/mousemode"
+GitHub
+.UE
