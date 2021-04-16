@@ -26,12 +26,12 @@ debug: clean $(OBJS)
 
 install: CFLAGS += -O3
 install: clean all
-	mkdir -p -- $(DESTDIR)$(PREFIX)
+	@mkdir -p -- $(DESTDIR)$(PREFIX)
 	cp -- $(OUT) $(DESTDIR)$(PREFIX)/bin
-	chmod 755 -- $(DESTDIR)$(PREFIX)/bin/$(OUT)
-	mkdir -p -- $(DESTDIR)$(MANPREFIX)
+	@chmod 755 -- $(DESTDIR)$(PREFIX)/bin/$(OUT)
+	@mkdir -p -- $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < mousemode.1 > $(DESTDIR)$(MANPREFIX)/man1/mousemode.1
-	chmod 755 -- $(DESTDIR)$(MANPREFIX)/man1/mousemode.1
+	@chmod 644 -- $(DESTDIR)$(MANPREFIX)/man1/mousemode.1
 
 uninstall:
 	rm -f -- $(DESTDIR)$(PREFIX)/bin/$(OUT)
