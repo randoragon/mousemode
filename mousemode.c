@@ -1,9 +1,10 @@
+#define _POSIX_C_SOURCE 199309L
 #include <stdlib.h>
 #include <stdio.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/extensions/XTest.h>
-#include <unistd.h>
+#include <time.h>
 #include <signal.h>
 
 #define FREQUENCY 60
@@ -137,8 +138,9 @@ int main()
     }
 
     while (running) {
+        const struct timespec sleep_timespec = {0, 1e9 / FREQUENCY};
         running &= handleKeys();
-        usleep(1000000 / FREQUENCY);
+        nanosleep(&sleep_timespec, NULL);
     }
 
     XUngrabKey(dpy, AnyKey, AnyModifier, root);
