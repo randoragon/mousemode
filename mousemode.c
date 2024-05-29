@@ -118,7 +118,7 @@ void termhandler(int signum)
 int main()
 {
     signal(SIGTERM, termhandler);
-	signal(SIGINT, termhandler);
+    signal(SIGINT, termhandler);
 
     if (!(dpy = XOpenDisplay(NULL))) {
         fprintf(stderr, "mousemode: failed to open display");
